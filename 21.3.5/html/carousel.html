@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>轮播图</title>
+        <script src="../js/animation.js"></script>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            ul{
+                list-style: none;
+            }
+            img{
+                width: 590px;
+                height: 470px;
+                display: block;
+            }
+            .silder{
+                width: 590px;
+                height: 470px;
+                border: 5px solid red;
+                position: relative;
+            }
+
+            .silder .list .item{
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+            .silder .list .item:first-of-type{
+                opacity: 1;
+            }
+            .silder .next,.silder .prev{
+                position:absolute;
+                top: 213px;
+            }
+            .silder .next{
+                right: 0;
+            }
+
+            .silder .pagination{
+                position: relative;
+                top:300px;
+            }
+
+            .silder .pagination .bullet{
+                width: 20px;
+                height: 20px;
+                background-color: black;
+                margin-left: 5px;
+                float: left;
+                border: 2px solid yellow;
+                cursor: pointer;
+                color: white;
+                line-height: 20px;
+                text-align: center;
+            }
+            .silder .pagination .bullet.focus{
+                background-color: hotpink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="silder">
+            <ul class="list">
+                <li class="item"><img src="../img/img(1).webp" alt=""></li>
+                <li class="item"><img src="../img/img(2).webp" alt=""></li>
+                <li class="item"><img src="../img/img(3).webp" alt=""></li>
+                <li class="item"><img src="../img/img(4).webp" alt=""></li>
+            </ul>
+            <button class="prev">prev</button>
+            <button class="next">next</button>
+            <ul class="pagination">
+                <li class="bullet focus">1</li>
+                <li class="bullet">2</li>
+                <li class="bullet">3</li>
+                <li class="bullet">4</li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        var prevIndex,nextIndex;
+        var len = 0;
+        var id;  
+        init();
+
+        function init(){
+            prevIndex = nextIndex = 0;
+            len = document.querySelectorAll('.list .item').length;
+            document.querySelector('.prev').onclick = function(){
+                sliderPrev();
+            }
+            document.querySelector('.next').onclick = function(){
+                sliderNext();
+            }
+
+            var bullets = document.querySelectorAll('.silder .pagination .bullet');
+            for(var i = 0; i < bullets.length; i++){
+                bullets[i].index = i;
+                bullets[i].onclick = function(){
+                   prevIndex = nextIndex;
+                   nextIndex = this.index;
+                   slideTo(prevIndex,nextIndex); 
+                }
+            }
+
+            var slider = document.querySelector('.silder');
+
+            slider.onmouseover = function() {
+                stop();
+            }
+
+            slider.onmouseout = function(){
+                auto();
+            }
+            auto();
+        }
+        function sliderPrev(){
+            prevIndex = nextIndex;
+            nextIndex--;
+            if(nextIndex == -1){
+                nextIndex = len - 1;
+            }
+            slideTo(prevIndex,nextIndex);
+        }
+        function sliderNext(){
+            prevIndex = nextIndex;
+            nextIndex++;
+            if(nextIndex == len){
+                nextIndex = 0;
+            }
+            slideTo(prevIndex,nextIndex);
+        }
+
+        function slideTo(prev,next){
+
+            var list = document.querySelectorAll('.list .item');
+            
+            //焦点切换
+            var bullets = document.querySelectorAll('.silder .pagination .bullet');
+            console.log(bullets.length);
+            bullets[prev].className = 'bullet';
+            bullets[next].className = 'bullet focus';
+            
+            animate(list[prev],{opacity:0});
+            animate(list[next],{opacity:100});
+        } 
+        
+        function auto(){
+            clearInterval(id);
+            id = setInterval(function(){
+                sliderNext();
+            },2000)
+        }
+        
+
+        function stop(){
+            clearInterval(id);
+        }
+    </script>
+</html>

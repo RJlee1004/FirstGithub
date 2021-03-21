@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>动画</title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{
+                overflow:hidden;
+            }
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: black;
+                position:absolute;
+                left: 0;
+                top: 0;
+            }
+            div:nth-of-type(2){
+                left: 500px;
+                top: 500px;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var speedx = 3;
+                var speedy = 3;
+                var oDiv1 = document.querySelector('div');
+                var oDiv2 = document.querySelector('div:nth-of-type(2)');
+                oDiv1.speedx = 3;
+                oDiv1.speedy = 3;
+                oDiv2.speedx = 3;
+                oDiv2.speedy = 3;
+                function move(el){
+                    var currentLeft = parseInt(window.getComputedStyle(el).left);
+                    var currentTop = parseInt(window.getComputedStyle(el).top);
+                    check_border_collision(el);
+                    var tempX,tempY;
+                    if(check_block_collision(oDiv1,oDiv2)){
+                        tempX = oDiv1.speedx;
+                        tempY = oDiv1.speedy;
+
+                        oDiv1.speedx = oDiv2.speedx;
+                        oDiv1.speedy = oDiv2.speedy;
+
+                        oDiv2.speedx = tempX;
+                        oDiv2.speedy = tempY;
+                    }
+                    var oLeft = currentLeft + el.speedx;
+                    var oTop = currentTop + el.speedy;
+                    el.style.left = oLeft + 'px';
+                    el.style.top = oTop + 'px';
+                }
+
+                
+
+                function check_border_collision(el){
+                    var oStyle = window.getComputedStyle(el);
+                    var left = parseInt(oStyle.left);
+                    var top = parseInt(oStyle.top);
+                    var w = parseInt(oStyle.width);
+                    var h = parseInt(oStyle.height);
+
+
+                    if(left < 0 ){
+                        left = 0;
+                        el.speedx *= -1;
+                    }
+                    
+                    if(left > window.innerWidth - w){
+                        left = window.innerWidth - w;
+                        el.speedx *= -1;
+                    }
+                    
+                    if(top < 0 ){
+                        top = 0;
+                        el.speedy *= -1;
+                    }
+
+                    if(top > window.innerHeight - h){
+                        top = window.innerHeight - h;
+                        el.speedy *= -1;
+                    }
+
+                    el.style.top = top + 'px';
+                    el.style.left = left + 'px';
+                }
+                function check_block_collision(block1,block2){
+                    var oBlock1 = window.getComputedStyle(block1);
+                    var oBlock2 = window.getComputedStyle(block2);
+
+                    var oLeft1 = parseInt(oBlock1.left);
+                    var oLeft2 = parseInt(oBlock2.left);
+
+                    var oTop1 = parseInt(oBlock1.top);
+                    var oTop2 = parseInt(oBlock2.top);
+                    
+                    var width1 = parseInt(oBlock1.width);
+                    var width2 = parseInt(oBlock2.width);
+
+                    var height1 = parseInt(oBlock1.height);
+                    var height2 = parseInt(oBlock2.height);
+
+                    var center1 = {
+                        x: oLeft1 + width1 / 2,
+                        y: oTop1 + height1 / 2
+                    }
+                    var center2 = {
+                        x: oLeft2 + width2 / 2,
+                        y: oTop2 + height2 / 2
+                    }
+
+                    var diffX = Math.abs(center1.x - center2.x);
+                    var diffY = Math.abs(center1.y - center2.y);
+                    if(diffX < (width1 + width2)/2 && diffY < (height1 + height2 )/2){
+                        return true;
+                    }
+
+                    return false;
+                }
+                setInterval(function(){
+                     move(oDiv1);
+                     move(oDiv2);
+                },5);
+            }
+
+        </script>
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+    </body>
+</html>

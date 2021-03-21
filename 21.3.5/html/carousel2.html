@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            width: 590px;
+            height: 470px;
+            display: block;
+        }
+        .silder{
+            width: 590px;
+            height: 470px;
+            border: 5px solid red;
+            position: relative;
+        }
+
+        .silder .list .item{
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .silder .list .item:first-of-type{
+            opacity: 1;
+        }
+        .silder .next,.silder .prev{
+            position:absolute;
+            top: 213px;
+        }
+        .silder .next{
+            right: 0;
+        }
+    </style>
+    <script>
+        //上个版本错在了onclick的c忘记写了，竟然不报错，还以为是文件建错了！！！！
+        window.onload = function(){
+            // console.log('执行了js')
+            var prevIndex,nextIndex;
+            var len = 0;
+            init();
+            function init(){
+                prevIndex = nextIndex = 0;
+                len = document.querySelectorAll(".list .item").length;
+
+                document.querySelector(".prev").onclick = function(){
+                    alert('msg');
+                }
+                document.querySelector('.next').onclick = function(){
+                    sliderNext();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="silder">
+        <ul class="list">
+            <li class="item"><img src="../img/img(1).webp" alt=""></li>
+            <li class="item"><img src="../img/img(2).webp" alt=""></li>
+            <li class="item"><img src="../img/img(3).webp" alt=""></li>
+            <li class="item"><img src="../img/img(4).webp" alt=""></li>
+        </ul>
+        <button class="prev">prev</button>
+        <button class="next">next</button>
+    </div>    
+</body>
+</html>

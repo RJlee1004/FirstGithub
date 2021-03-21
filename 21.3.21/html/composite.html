@@ -1,0 +1,40 @@
+<!-- composite.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组合继承</title>
+    <script>
+        window.onload = function(){
+            function Person(name,age){
+                this.name = name;
+                this.age = age;
+            }
+
+            Person.prototype.sayHello = function(){
+                alert(this.name);
+            }
+                
+            
+
+            function Student(name,age,id){
+                Person.apply(this,[name,age]);
+                this.id = id;
+            }
+            Student.prototype = Object.create(Person.prototype);
+            Student.prototype.study = function(){
+                alert(this.id + "is learning!!");
+            }
+
+            var s = new Student('rjlee',18,0859);
+            s.sayHello();
+            s.study();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>3.21</title>
+        <script>
+            window.onload = function(){
+                //Person类
+                function Person(name,age){
+                    this.name = name;
+                    this.age = age;
+                    this.sayHello = function(){
+                        alert(this.name);
+                    }
+                }
+
+                // Person.prototype.sayHello = function(){
+                //     alert(this.name);
+                // }
+
+                var p = new Person();
+
+                //Student
+                function Student(name,age,id){
+                    Person.apply(this,[name,age]);
+                    // Person.call(this,name,age);
+                    this.id = id;
+
+                    this.study = function(){
+                        alert(this.id + "is learning!!!");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

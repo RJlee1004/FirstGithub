@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>对象</title>
+        <script>
+            //创建对象
+            var obj = new Object();
+            
+            obj.name = "lrj";
+            obj.sex = "男";
+            obj.age = 18;
+            console.log(obj);
+            console.log(typeof obj);
+
+            //读取对象中的属性
+            //对象.属性名
+            document.write(obj.name);
+            obj.name = "张婷";
+            document.write(obj.name);
+            delete obj.name;
+            document.write(obj.name);
+        
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

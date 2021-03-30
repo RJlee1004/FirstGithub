@@ -1,0 +1,316 @@
+body{
+    width: 7.5rem;
+    /* height: ; */
+    background-color: rgb(26,32,82);
+}
+.header{
+    width: 7.5rem;
+	height: 1.28rem;
+    background-color: rgb(238,238,237);
+}
+.titler{
+    width: 5.73rem;
+	height: 1.99rem;
+    /* background-color: red; */
+    margin: 0 auto;
+    top: 0.61rem;
+    position: relative;
+}
+.titler img{
+    width: 5.73rem;
+	height: 1.34rem;
+}
+.middle-main-bg {
+	width: 6.6rem;
+	height: 1.26rem;
+	border-radius: 0.12rem;
+	border: solid 0.01rem #ffffff;
+	opacity: 0.5;
+    margin: 0 auto;
+    position: relative;
+    top: 0.48rem;
+}
+.middle-main-bg img{
+    width: 6.6rem;
+	height: 1.26rem;
+}
+
+.top{
+	width: 6.9rem;
+	height: 5.05rem;
+    background:rgb(254,240,226) url(./img/top-bg.png) no-repeat;
+	box-shadow: inset 0rem 0.01rem 0rem 0rem 
+		#ffffff;
+    border-radius: 0.12rem;
+    margin: 0 auto;
+    position: relative;
+    top: -0.65rem;
+}
+.top .top_img_bg{
+    width: 2.7rem;
+	height: 1.85rem;
+	background-color: #e8bb8e;
+	border: solid 0.01rem #ffffff;
+	opacity: 0.21;
+    position: absolute;
+    left: 0.04rem;
+    top: 0.61rem;
+}
+.top .top_img{
+    width: 2.72rem;
+	height: 1.85rem;
+	background-color: #ffffff;
+	box-shadow: 0rem 0.05rem 0.09rem 0rem 
+		rgba(222, 171, 118, 0.26);
+	border: solid 0.01rem #fbf6f2;
+    position: absolute;
+    left: -0.08rem;
+    top: 0.51rem;
+}
+.top .top_img img{
+    width: 2.72rem;
+	height: 1.85rem;
+}
+
+.top .top_content{
+    width: 3.65rem;
+    height: 1.44rem;
+    font-family: PingFang-SC-Bold;
+    font-size: 0.24rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.4rem;
+    letter-spacing: 0rem;
+    color: #8a4b32;
+    position: absolute;
+    left: 2.96rem;
+    top: 0.75rem;
+}
+.top_btm_bg {
+	width: 6.9rem;
+	height: 1.1rem;
+	background-color: #f2d1b0;
+	opacity: 0.4;
+    position:absolute;
+    top: 2.68rem;
+}
+.top .top_adv{
+    position: absolute;
+    top: 3.09rem;
+    /* background-color: red; */
+    width: 6.9rem;
+    height: 1.51rem;
+}
+.top .top_adv .adv{
+    width: 1.52rem;
+    height: 1.48rem;
+    float: left;
+    margin-left: 0.13rem;
+    border-radius: 0.1rem;
+}
+.top .top_adv .adv img{
+    width: 1.52rem;
+    height: 1.48rem;
+}
+.middle{
+    width: 6.9rem;
+	height: 16.71rem;
+    margin: 0 auto;
+    position:relative;
+    top:-0.5rem;
+    background:url(../img/middle-bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+.middle .middle_img{
+    width: 4.97rem;
+    height: 1.57rem;
+    position: absolute;
+    top: 0.35rem;
+    left: 0.99rem;
+}
+.middle .middle_img img{
+    width: 4.97rem;
+    height: 1.57rem;
+
+}
+.middle .middle_mid{
+    width: 6.49rem;
+	height: 14.15rem;
+	background-color: #fffaf5;
+    margin: 0 auto;
+    position: relative;
+    top: 2.29rem;
+}
+.middle .middle_mid .mid_top{
+    width: 5.76rem;
+	height: 1.43rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.24rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.4rem;
+	letter-spacing: 0rem;
+	color: #333333;
+    position: relative;
+    left: 0.37rem;
+    top: 0.46rem;
+}
+.middle .middle_mid .mid_img{
+    width: 6.48rem;
+	height: 0.79rem;
+    position: relative;
+    top: 0.7rem;
+	border: solid 0.01rem #ffffff;
+}
+.middle .middle_mid .mid_img img{
+    width: 6.48rem;
+	height: 0.79rem;
+}
+.bottomer{
+    background: url(../img/bottom-bg.png) no-repeat;
+    background-size: 100% 100%;
+    width: 6.9rem;
+	height: 14.72rem;
+    margin: 0 auto;
+    position:relative;
+    top: -0.3rem;
+}
+.bottomer .btm1{
+    width: 6.72rem;
+	height: 9.21rem;
+    /* background-color: red; */
+    position: relative;
+    margin: 0 auto;
+    top: 0.2rem;
+
+}
+.bottomer .btm1 img{
+    width: 6.72rem;
+	height: 9.21rem;
+}
+.bottomer .btm2{
+    width: 6.71rem;
+	height: 4.43rem;
+    margin: 0 auto;
+    position: relative;
+    top: 0.4rem;
+
+}
+.bottomer .btm2 img{
+    width: 6.71rem;
+	height: 4.43rem;
+}
+.bottomer .btm3{
+    width: 5.62rem;
+	height: 0.21rem;
+    position: relative;
+    margin: 0 auto;
+    top: 0.6rem;
+}
+
+.bottomer .btm3 img{
+    width: 5.62rem;
+	height: 0.24rem; 
+}
+.under{
+    width: 7.5rem;
+	height: 1.2rem;
+	background-color: #ffffff;
+    position:absolute;
+}
+.under .cases{
+    width: 3.35rem;
+	height: 0.9rem;
+	background-color: #ffffff;
+	border-radius: 0.445rem;
+	border: solid 0.01rem #e4a66e;
+    position: relative;
+    top: 0.15rem;
+    left: 0.3rem;
+}
+.under .cases span{
+    width: 0.99rem;
+	height: 0.32rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.34rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.4rem;
+	letter-spacing: 0rem;
+	color: #7f3e05;
+}
+
+.under .fuli{
+    width: 3.35rem;
+	height: 0.9rem;
+	background-image: linear-gradient(0deg, 
+		#e4b281 0%, 
+		#edd0b2 100%), 
+	linear-gradient(
+		#e8ad75, 
+		#e8ad75);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 0.445rem;
+    position: relative;
+    top: 0.15rem;
+    left: 0.5rem;
+}
+
+.under .fuli span{
+    width: 1.32rem;
+	height: 0.32rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.34rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.4rem;
+	letter-spacing: 0rem;
+	color: #7f3e05;
+}
+.middle_mid .panel{
+    width: 6.48rem;
+    position: relative;
+    top: 0.8rem;
+}
+.middle_mid .panel img{
+    width: 0.76rem;
+	height: 0.76rem;
+    position:absolute;
+    left: 0.35rem;
+}
+.middle_mid .panel p{
+    width: 1.2rem;
+	height: 0.27rem;
+	font-family: PingFang-SC-Bold;
+	font-size: 0.28rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.4rem;
+	letter-spacing: 0rem;
+	color: #8a4b32;
+    position: relative;
+    left: 1.37rem;
+}
+.middle_mid .panel span{
+    display: block;
+    width: 4.71rem;
+	height: 1.05rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.24rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.4rem;
+	letter-spacing: 0rem;
+	color: #333333;
+    position: relative;
+    top: 0.6rem;
+    left: 1.37rem;
+}
+.middle_mid .panel hr{
+    width: 5.78rem;
+	/* height: 0.01rem; */
+	border: dashed 0.01rem #e1a362;
+	opacity: 0.5;
+    position: relative;
+}

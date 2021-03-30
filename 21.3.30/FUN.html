@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fun</title>
+        <script>
+            var fun = new Function("console.log('Hello 这是我第一个函数')");
+
+            //函数代码封装好了只有在调用的时候才会执行;
+            fun();
+
+            function fun2(){
+                document.write("这是我第二个函数")
+            }
+            fun2();
+            // 函数也是一个对象，但是区别于普通对象，函数可以封装一些功能，在需要的时候调用；调用时才会触发。
+            // 1、构造函数
+            // new Function（“”）；
+            // 2、函数声明
+            // function 函数名（【形参1，...】）{函数体}
+            // 3、使用函数表达式
+            // var 函数名 = function（）{函数体} 右边为匿名函数
+
+            var sum = function(a,b){
+                // console.log(a+b);
+                return a+b;
+            }
+            var res = sum(123,456);
+            console.log(res);
+
+
+            //立即执行函数
+            (function(){
+                alert("立即执行函数！");
+            })()
+            //用（）括号括起来表示这个匿名函数变为了一个函数对象，所以可以直接调用，也是用括号
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

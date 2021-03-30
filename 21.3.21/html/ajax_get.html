@@ -10,6 +10,9 @@
         var xhr = new XMLHttpRequest();
         //4.监听请求
         xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            console.log(xhr.status);
+
             //当xhr对象的readyState属性发生了改变，这个事件就会触发
             //readyState：
             //0 ==> xhr对象已经创建，但是还没有进行初始化操作
@@ -17,11 +20,12 @@
             //2 ==》 xhr已经发出ajax请求
             //3 ==》 已经返回了部分数据
             //4 ==》 数据已经全部返回
-            if (xhr.readystate != 4){
+            if (xhr.readyState != 4){
                 return;
             }
             if(xhr.status >= 200 && xhr.status <= 300){
                 //数据放在了xhr.responseText的属性中（String）
+                // console.error('请求成功');
                 document.querySelector('h1').innerHTML = xhr.responseText;
             }else{
                 console.error('请求失败');

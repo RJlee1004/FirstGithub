@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>枚举</title>
+        <script>
+            var obj = {
+                name:"lrj",
+                age:18,
+                sayHello:function(){
+                    alert("Hello");
+                }
+
+            };
+
+            // 使用for .. in 语句
+            for(var n in obj){
+                console.log(n);
+            }
+
+            // 变量的声明提前{
+            // --使用var关键字声明的变量，会在所有的代码执行之前被声明，但是并不会被赋值；
+            // --如果不适用var的话，则不会声明提前；
+            // }
+            // 函数的声明提前{
+            // --使用函数声明的方式创建的函数会在所有代码执行之前被创建
+            // --但是使用函数表达式创建的函数不会声明提前
+            // --声明提前才可以在函数声明前调用函数
+            // }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

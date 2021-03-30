@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>质数</title>
+        <script>
+            var ins = prompt("请输入一个正整数:");
+
+            while(true){
+                if(ins < 0 ){
+                    alert('请输入正确的数据！！！');
+                    ins = prompt("请输入一个正整数:");
+                }else{
+
+                    var flag = true;
+                    for(var i = 2; i < ins; i++){
+                        if(ins % i == 0){
+                            flag = false;
+                            alert(ins + "不是质数");
+                            break;
+                        }
+                    }
+                    if(flag){
+                        document.write(ins + "是质数！");
+                    }
+                    break;
+                }
+                
+            }
+
+            // for(var i = 0; i < 5; i++){
+            //     console.log(i);
+            //     if(i == 2){
+            //         break;
+            //     }
+            // }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

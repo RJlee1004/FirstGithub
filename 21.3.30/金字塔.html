@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>金字塔</title>
+        <style>
+            span{
+                display: inline-block;
+                width: 80px;
+            }
+        </style>
+        <script>
+            //下三角
+            // for(var i = 1; i <= 5; i++){
+            //     // document.write('*****<br/>');
+            //     for(var j = 0; j < i; j++){
+            //         document.write("*&emsp;");
+            //     }
+            //     document.write("<br/>");
+            // }
+
+            //上三角
+            // for(var i = 0; i < 5; i++){
+            //     for(var j = 0; j < 5 - i; j++){
+            //         document.write('*&emsp;');
+            //     }
+            //     document.write("<br/>");
+            // }
+            
+            //打印99乘法表
+            // for(var i = 1; i <= 9; i++){
+            //     for(var j = 1; j <= i; j++){
+            //         document.write("<span>" +i + '*' + j + '=' + (i*j)+ "</span>");
+            //     }
+            //     document.write("<br/>")
+            // }
+
+            //打印1-100之间的质数
+
+            console.time("test");
+
+            for(var i = 2; i <= 100000; i++){
+                var flag = true;
+                for(var j = 2; j < Math.sqrt(i); j++){
+                    if(i % j == 0){
+                        // console.log(i + "不是质数");
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag){
+                    // document.write(i + "是质数<br/>");
+                }
+            }
+            console.timeEnd('test');
+            
+            
+            
+            //测试label
+            // outer:for(var i = 0; i < 5; i++){
+            //     console.log("---" + i);
+            //     for(var j = 0; j < i+1; j++){
+            //         if(i == 2){
+            //             continue outer;
+            //         }
+            //         console.log("--" +j);
+            //     }
+               
+            // }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

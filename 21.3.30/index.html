@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            // var n  = 1000;
+            // var count = 0; 
+            // while(true){
+            //     count++;
+            //     n *= 1.05;
+            //     if(n > 5000){
+            //         break;
+            //     }
+            // }
+            
+
+            //水仙花
+            for(var i = 100; i < 1000; i++){
+                var bai = parseInt(i/100);
+
+                var shi = parseInt((i%100)/10);
+
+                var ge = i%10;
+
+                var sum = Math.pow(bai,3) + Math.pow(shi,3) + Math.pow(ge,3);
+                if(sum == i){
+                    document.write(i+ "\n");
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

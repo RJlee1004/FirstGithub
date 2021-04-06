@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Class</title>
+        <style>
+            .b1{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            .b2{
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var box = document.getElementById("box1");
+                var btn01 = document.getElementById("btn01");
+
+                btn01.onclick = function(){
+                    //修改box样式
+                    // box.style.width = "200px";
+                    //通过style属性来修改元素的样式，
+                    //每修改一个样式，浏览器就需要重新渲染一次页面
+                    //性能较差
+                    box.className += " b2";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button id="btn01">点击按钮以后修改</button>
+        <br><br>
+        <div id="box1" class="b1">
+        </div>
+    </body>
+</html>

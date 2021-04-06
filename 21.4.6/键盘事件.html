@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>键盘事件</title>
+        <script>
+            window.onload = function(){
+                document.onkeydown = function(e){
+                    e = event || window.event;
+                //    console.log("键盘被按下了");
+                // console.log(e.keyCode);
+                    if(e.keyCode === 89 && e.shiftKey){
+                        // alert('被按下');
+                        console.log("被按下");
+                    }
+                }
+                // document.onkeyup = function(){
+                //     console.log("键盘被抬起");
+                // }
+
+                var oinput = document.getElementsByTagName("input")[0];
+                oinput.onkeydown = function(e){
+                    e = event || window.event;
+                    if(e.keyCode >= "48" || e.keyCode <= "57"){
+                        return false;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text">
+    </body>
+</html>

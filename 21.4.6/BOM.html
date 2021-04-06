@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BOM</title>
+        <script>
+            console.log(navigator.userAgent);
+            var ua = navigator.userAgent;
+            if(/Firefox/i.test(ua)){
+                alert("你是火狐");
+            }else if(/Chrome/i.test(ua)){
+                alert("你是谷歌");
+            }else if("ActiveXObject" in window){
+                // window.ActiveXObject
+                // /msie/i.test(ua)
+                alert("你是IE浏览器");
+            }
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

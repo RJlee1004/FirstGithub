@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS动画轮播</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #outer{
+                width: 590px;
+                height: 470px;  
+                border: solid 5px yellow;
+                position: relative;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            #imgList{
+                list-style: none;
+                /* width: 2400px; */
+                position: absolute;
+                /* left: -590px; */
+            }
+            #imgList li{
+                float: left;
+            }
+            #imgList img{
+                width: 590px;
+                height: 470px;
+            }
+            #nav{
+                position: absolute;
+                /* left: 220px; */
+                top: 440px;
+            }
+            #nav a{
+                width: 20px;
+                height: 20px;
+                display: block;
+                background-color: orangered;
+                float: left;
+                margin-left: 10px;
+
+            }
+            #nav a:hover{
+                background-color: black;
+            }
+        </style>
+        <script src="js/tool.js"></script>
+        <script>
+            window.onload = function(){
+                //设置imgList宽度
+                var imgList = document.getElementById("imgList");
+
+                var imgArr = document.getElementsByTagName("img");
+                // console.log(imgArr[0].offsetWidth);
+                imgList.style.width = imgArr[0].offsetWidth * imgArr.length + 'px';
+
+                //设置导航按钮居中
+                var nav = document.getElementById("nav");
+                var outer = document.getElementById("outer");
+                nav.style.left = (outer.offsetWidth  - nav.offsetWidth) / 2 + 'px';
+                
+                var index = 0;
+                var allA = document.getElementsByTagName("a");
+                allA[index].style.backgroundColor = 'black';
+
+                //点击超链接切换到对应的图片
+                for(var i = 0; i < allA.length; i++){
+                    allA[i].num = i;
+                    clearInterval(timer);
+                    allA[i].onclick = function(){
+                        // allA[index].style.backgroundColor = "orangered";
+                        // alert(this.num);
+                        index = this.num;
+
+                        // imgList.style.left = -590 * index + 'px';
+                        setA();
+                        console.log(index);
+                        move(imgList , "left", -590*index, 20 ,function(){
+                            
+                        });
+                    }
+                }
+
+                function setA(){
+                    //判断当前索引是否是最后一张
+                    if(index >= imgArr.length - 1){
+                        index = 0;
+                        //此时显示的最后一张图片，而最后一张图片和第一张是一模一样
+                        //通过css将最后一张切换成第一张
+                        imgList.style.left = 0 + 'px';
+                    }
+                    for(var i = 0; i < allA.length; i++){
+                        //空串去除样式而且不影响hover
+                        allA[i].style.backgroundColor = "";
+                    }
+                    allA[index].style.backgroundColor = 'black';
+                }
+                var timer;
+                function autoChange(){
+                    timer = setInterval(function(){
+                        index++;
+                        index %= imgArr.length;
+                        move(imgList , "left" , -520*index, 20 , function(){
+                            setA();
+                        });
+                        
+                    },3000);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="outer">
+            <ul id="imgList">
+                <li><img src="img/img(1).webp" alt=""></li>
+                <li><img src="img/img(2).webp" alt=""></li>
+                <li><img src="img/img(3).webp" alt=""></li>
+                <li><img src="img/img(4).webp" alt=""></li>
+                <li><img src="img/img(1).webp" alt=""></li>
+            </ul>
+            <!-- 创建导航按钮 -->
+            <div id="nav">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </body>
+</html>

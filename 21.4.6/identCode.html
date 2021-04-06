@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>验证码</title>
+        <style>
+            #box{
+                width: 300px;
+                height: 300px;
+                border: 2px solid yellow;
+                margin: 0 auto;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var btn = document.getElementById("btn");
+                var timer;
+                btn.onclick = function(){
+                    
+                    // clearInterval(timer);
+                    btn.disabled = "disabled";
+                    var i = 0;
+                    timer = setInterval(function(){
+                        i++;
+                        btn.innerHTML = "还剩" + (60-i) +"秒";
+                        if(i >= 60){
+                            clearInterval(timer);
+                            btn.disabled = null;
+                            btn.innerHTML = "获取验证码";
+                        }
+                    },100);
+
+                    
+
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <br>
+            <input type="text">
+            <button id="btn">获取验证码</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>方块拖入</title>
+        <style>
+            #panel{
+                width: 500px;
+                height: 500px;
+                background-color: pink;
+                float: left;
+            }
+            #box1,#box2,#box3{
+                width: 100px;
+                height: 100px;
+                
+                position: absolute;
+                left: 550px;
+            }
+            #box1{
+                background-color: red;
+                top: 20px;
+            }
+            #box2{
+                background-color: yellow;
+                top: 140px;
+            } 
+            #box3{
+                background-color: green;
+                top: 260px;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                
+                drag("box1");
+                drag("box2");
+                drag("box3");
+            }
+            function drag(obj){
+                var obj = document.getElementById(obj);
+                obj.onmousedown = function(e){
+                    e = event || window.event;
+                    // alert(1);
+                    var objX = e.clientX - obj.offsetLeft;
+                    var objY = e.clientY - obj.offsetTop;
+
+                    document.onmousemove = function(e){
+                        e = event || window.event;
+                        // console.log(e);
+                        var X = e.clientX;
+                        var Y = e.clientY;
+                        
+                        obj.style.left = X - objX + 'px';
+                        obj.style.top = Y - objY + 'px';
+                    }
+                    //鼠标松开，元素固定在最终位置
+                    document.onmouseup = function(){
+                        //取消onmousemove
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+
+                        obj.releaseCapture && obj.releaseCapture();
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="panel"></div>
+
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </body>
+</html>

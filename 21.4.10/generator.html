@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function* show() {
+            yield 'welcome';
+            yield 'to';
+            yield 'lrj';
+        }
+
+        // function gen() {
+
+        // }
+        // let res = show();
+        // console.log(res.next());
+
+        // for (let val of res) {
+        //     console.log(val);
+        // }
+        // let res1 = gen();
+        // console.log(res1);
+        // let [a, ...b] = show();
+        // console.log(a, b);
+        // console.log(...show())
+        console.log(Array.from(show()));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

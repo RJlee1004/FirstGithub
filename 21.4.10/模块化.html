@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块化</title>
+    <script type="module">
+        // import { aaa as a, bb as b, c } from './js/mod.js';
+        // console.log(a, b, c);
+        // import a from './js/mod.js';
+        // console.log(a);
+        // import mod, { show, sum, a, b } from './js/mod.js';
+        // let p1 = new mod.Person('lrj');
+        // console.log(p1.showName());
+        // show();
+        // sum();
+        // console.log(a, b);
+        import { a, b } from './js/mod.js';
+        console.log(a);
+        setTimeout(() => {
+            console.log(a);
+        }, 2000);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

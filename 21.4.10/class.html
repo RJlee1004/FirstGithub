@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+    <script>
+        function Person(name, age) {
+            //构造函数
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.showName = function () {
+            return `名字是：${this.name}`;
+        }
+        // Object.assign(Person.prototype, {
+        //     showName() {
+        //         return `名字是${this.name}`;
+        //     }
+        // })
+        let p1 = new Person('lrj', 18);
+        console.log(p1.showName());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

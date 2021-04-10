@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 0;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            class Drag {
+                constructor(id) {
+                    this.oDiv = document.querySelector(id);
+                    this.disX = 0;
+                    this.disY = 0;
+                    this.init();
+                }
+                init() {
+                    this.oDiv.onmousedown = function (ev) {
+                        // alert(this);//不绑定的话是div
+                        this.disX = ev.clientX - this.oDiv.offsetLeft;
+                        this.disY = ev.clientY - this.oDiv.offsetTop;
+
+                        document.onmousemove = this.fnMove.bind(this);
+                        document.onmouseup = this.fnUp.bind(this);
+                        return false;
+                    }.bind(this);
+                }
+                fnMove(ev) {
+                    this.oDiv.style.left = ev.clientX - this.disX + 'px';
+                    this.oDiv.style.top = ev.clientY - this.disY + 'px';
+                }
+                fnUp(ev) {
+                    document.onmousemove = null;
+                    document.onmousedown = null;
+                }
+            }
+
+            class LimitDrag extends Drag {
+                fnMove(ev) {
+                    super.fnMove(ev);
+                    if (this.oDiv.offsetLeft < 0) {
+                        this.oDiv.style.left = 0;
+                    }
+                }
+            }
+            new Drag('#div1');
+            new LimitDrag('#div2');
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="div1" class="box left"></div>
+    <div id="div2" class="box right"></div>
+</body>
+
+</html>

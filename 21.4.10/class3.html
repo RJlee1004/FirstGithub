@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        class Person {
+            constructor() {
+                this.name = 'lrj';
+                this.showName = this.showName.bind(this);
+            }
+            showName() {
+                console.log(`this${this}`);
+                return `lrjzt`;
+            }
+            get aaa() {
+                return `这是获取到的aaa的值:${aaa}`;
+            }
+            set aaa(val) {
+                console.log(val);
+            }
+        }
+        let p1 = new Person();
+        p1.aaa = '1233';
+        // console.log(p1);
+        // let { showName } = p1;
+        // console.log(showName());
+        console.log(p1.aaa);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

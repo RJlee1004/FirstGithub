@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+            showName() {
+                console.log('父级showName执行')
+                return `名字是：${this.name}`;
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, skill) {
+                super(name);
+                this.skill = skill;
+            }
+            showName() {
+                super.showName();
+                console.log(`子类中的showName`);
+            }
+        }
+        let s1 = new Student('lrj', '上学');
+        console.log(s1.showName());
+        console.log(s1.skill);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

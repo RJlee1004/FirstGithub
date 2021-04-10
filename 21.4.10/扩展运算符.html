@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let aLi = document.querySelectorAll("ul li");
+
+            let arrLi = [...aLi];
+            let arrLi = [].slice.call(aLi);
+            let arrLi = Array.from(aLi);
+            arrLi.pop();
+            arrLi.push("111111111");
+            console.log(arrLi);
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+
+</html>

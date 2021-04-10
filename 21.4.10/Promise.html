@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = 11;
+        let promise = new Promise(function (resolve, reject) {
+            //resolve 成功时调用
+            //reject 失败时调用
+            if (a === 10) {
+                resolve('成功');
+            } else {
+                reject('失败');
+            }
+        });
+
+        // promise.then(success,fail);
+        promise.then(res => {
+            console.log(res);
+        }).catch(err => { //发生错误别名
+            console.log(err);
+        });
+
+        // promise.catch(err => { //发生错误别名
+        //     console.log(err);
+        // })
+
+        let p1 = Promise.resolve('lrj');
+        p1.then(res => {
+            console.log(res);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

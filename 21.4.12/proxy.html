@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //new Proxy(target,handler);
+        // let obj = new Proxy(被代理的对象,对代理对象的操作)
+        // handler:
+        //     {
+        //         set(){} 设置时操作
+        //         get(){} 获取时操作
+        //         deleteProperty(){}  删除
+        //         has(){}  检查是否有此东西
+        //         apply(){} 调用函数处理
+        //     }
+        let obj = {
+            name: 'lrj'
+        };//隐藏了此obj
+        let newObj = new Proxy(obj, {
+            get(target, property) {
+                // console.log(target, property);
+                console.log(`您访问了${property}属性`);
+                return target[property];
+            }
+        });
+        console.log(newObj.name);
+        // console.log(obj.name)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

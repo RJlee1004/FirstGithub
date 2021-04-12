@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let str = '2021-04-12';
+        let reg = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+        // let newStr = str.replace(reg, '$<month>/$<day>/$<year>');
+        // console.log(newStr);//04/12/2021
+
+        str = str.replace(reg, (...args) => {
+            console.log(args);
+            let { year, month, day } = args[args.length - 1];
+            return `${month}/${day}/${year}`;
+
+        });
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

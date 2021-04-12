@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let arr = [1, 1, 2, 4, 5, 4, 7];
+        // console.log(arr);
+        // let newArr = arr.filter((val, index) => {
+        //     // console.log(val, index);
+        //     console.log(arr.indexOf(val, index + 1));
+        //     // if (arr.indexOf(val, index + 1) == -1) {
+        //     //     return val;
+        //     // }
+        //     return arr.indexOf(val, index + 1) < 0;
+
+        // })
+        // console.log(newArr);
+
+        // let str = 'goodday';
+        // let newStr = str.substr(2, 4); console.log(str);
+        // console.log(newStr);//odda
+        // console.log(('....................................'));
+        // let str2 = 'goodday';
+        // let newStr2 = str.substring(2, 5); console.log(str2);
+        // console.log(newStr2);//odd
+
+        // let arr = arr2 = [1, 2, 3, 4, 5];
+        // let newArr = arr.slice(2, 4);
+        // console.log(arr);// [1, 2, 3, 4, 5]
+        // console.log(newArr);//[3, 4]
+        // console.log('..............................');
+        // let newArr2 = arr2.splice(1, 2);
+        // console.log(arr2); //[1, 4, 5]
+        // console.log(newArr2);//[2, 3]
+
+        // console.log(`数字+null=${2 + null}`);
+        // console.log(`数字+undefined=${1 + undefined}`);
+        // console.log(`数字+true=${1 + true}`);
+        // console.log(`数字+false=${2 + false}`);
+        // console.log(`数字+[{a:1}]=${2 + [{ a: 1 }]}`);
+        // console.log('............................................')
+        // console.log(`字符串+null=${'01' + null}`);
+        // console.log(`字符串+undefined=${'01' + undefined}`);
+        // console.log(`字符串+true=${'01' + true}`);
+        // console.log(`字符串+false=${'01' + false}`);
+        // console.log(`字符串+[{a:1}]=${'01' + [{ a: 1 }]}`);
+
+        let data = [
+            {
+                id: 1,
+                val: 10
+            },
+            {
+                id: 2,
+                val: 100
+            },
+            {
+                id: 3,
+                val: 1000
+            },
+        ];
+        console.log(data);
+
+        let newData = data.map((item, index, data) => {
+            return item.val = 10;
+            // if (item != 10) { return item.val = 10 }
+        });
+        console.log(data);
+        console.log(newData);
+
+        // let t = new Date();
+        // console.log(t.getTime());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

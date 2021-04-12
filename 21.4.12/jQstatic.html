@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        let arr = [1, 3, 5, 7, 9];
+        let obj = { 0: 1, 1: 3, 2: 5, 3: 7 };
+        //原生的forEach方法只能遍历数组，不能遍历伪数组
+        arr.forEach((val, index) => {
+            console.log(index, val);
+        })
+        //JQuery的each方法
+        $.each(arr, (index, val) => {
+            console.log(index, val);
+        })
+        $.each(obj, (index, val) => {
+            console.log(index, val);
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

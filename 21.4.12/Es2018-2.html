@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let reg = /^(?<lrj>welcome)-\k<lrj>$/;//welcome-welcome为true
+        let reg = /^(?<lrj>welcome)-\k<lrj>-\1$/;//welcome-welcome-welcome
+
+        let str1 = 'a-a';
+        let str2 = 'str-str';
+        let str3 = 'welcome-welcome';
+        let str4 = 'welcome-welcome-welcome';
+
+        console.log(reg.test(str1));
+        console.log(reg.test(str2));
+        console.log(reg.test(str3));
+        console.log(reg.test(str4));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

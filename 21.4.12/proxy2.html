@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //实现一个，访问一个对象身上属性，默认不存在的时候给了undefined，若不存在给出提示
+        let obj = {
+            name: 'lrj'
+        }
+        let newObj = new Proxy(obj, {
+            get(target, property) {
+                if (property in target) {
+                    return target[property];
+                } else {
+                    // throw new ReferenceError(`${property}属性不在此对象上`);
+                    console.warn(`${property}属性不在此对象上`);
+                    return '笑';
+                }
+            }
+        });
+        console.log(newObj.name);
+        console.log(newObj.age);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

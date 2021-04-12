@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = 12;
+        console.log(isNaN(a));
+        console.log(Number.isNaN(NaN));//true
+        console.log(Number.isFinite(a));//true
+        console.log(Number.isFinite(NaN));//false
+        console.log(Number.isFinite(12.5));//true
+        console.log(Number.isInteger(12.5));//false
+        console.log(Number.isInteger(NaN));//false
+
+        console.log(2 ** 54);
+        console.log('.....................');
+        console.log(Number.isSafeInteger(2 ** 53 - 1));//true
+        console.log(Number.isSafeInteger(-(2 ** 53) + 1));//true
+        console.log(Number.MAX_SAFE_INTEGER);//9007199254740991
+        console.log(Number.MIN_SAFE_INTEGER);//-9007199254740991
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

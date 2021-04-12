@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let setArr = new Set(['a', 'b', 'c', 'd']);
+
+        // for (let val of setArr) {
+        //     console.log(val);   //a,b,c,d
+        // }
+        for (let item of setArr.keys()) {
+            console.log(item); //a,b,c,d
+        }
+        console.log('................');
+        for (let item of setArr.values()) {
+            console.log(item); //a,b,c,d
+        }
+        console.log('................');
+        for (let item of setArr.entries()) {
+            console.log(item); //aa,bb,cc,dd
+        }
+        console.log('................');
+        for (let [key, val] of setArr.entries()) {
+            console.log(key, val); //aa,bb,cc,dd
+        }
+        console.log('................');
+        setArr.forEach((val, index) => {
+            console.log(val, index);
+        });
+
+        let setArr2 = new Set();
+        setArr2.add('a').add('b').add('c').add('d');
+        console.log(setArr2);
+        console.log('................');
+
+        let arr = [1, 1, 1, 1, 2, 3, 4, 2, 4, 2, 3];
+        // let set = new Set(arr);
+        let newArr = [...new Set(arr)];//数组去重
+        console.log(newArr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

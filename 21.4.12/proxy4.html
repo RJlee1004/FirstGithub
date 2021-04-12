@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //设置一个年龄，范围不超过200
+        let obj = new Proxy({}, {
+            set(target, prop, value) {
+                // console.log(target, prop, value);
+                if (target.prop == 'age') {
+                    if (Number.isInteger(value)) {
+                        throw new TypeError(`年龄必须为整数`);
+                    }
+                    if (value > 200) {
+                        throw new RangeError(`年龄超标了，必须小于200岁`);
+                    }
+                }
+                target[prop] = value;
+            }
+        });
+        obj.aaa = 123;
+        obj.name = 'lrj';
+        console.log(obj);
+        obj.age = 13.7;
+        console.log(obj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

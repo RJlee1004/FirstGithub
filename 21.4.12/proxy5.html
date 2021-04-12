@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //删除拦截   检测拦截
+        let json = {
+            a: 1,
+            b: 2
+        }
+        let newJson = new Proxy(json, {
+            deleteProperty(target, property) {
+                console.log(`你要删除${property}属性`);
+
+                delete target[property];
+            },
+            has(target, property) {
+                console.log(`您要判断是否存在${property}属性`);
+                return property in target;
+            }
+        });
+        // delete newJson.a;
+        console.log('a' in newJson);
+
+        console.log(newJson);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

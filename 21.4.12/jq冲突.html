@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //1、释放$的使用权
+        //释放操作必须在编写其他JQuery代码之前编写
+        //释放后不能再使用$符号，改用JQuery
+        // jQuery.noConflict();
+        //2、自定义访问符号
+        // var nj = jQuery.noConflict();
+        // nj(function () {
+        //     alert(1);
+        // });
+
+        //$():代表调用JQuery的核心函数
+        //1、接收一个函数
+        //$(function(){});
+        $(function () {
+            //2、接收一个字符串（字符串选择器或代码片段）
+            //返回一个JQuery对象，对象中保存了找到的DOM元素
+            let $box1 = $(".box1");
+            let $box2 = $("#box1");
+            let $p = $("<p>我是段落</p>");
+            //3、接收一个DOM元素
+            let span = document.getElementsByTagName("span")[0];
+            console.log(span);
+            //被包装成一个JQuery对象返回给我们
+            let $span = $(span);
+            console.log($span);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div id="box2"></div>
+    <span>我是span</span>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function AClass() { }
+        AClass.staticMethod = function () {
+            console.log('这是静态方法，通过类名调用');
+        }
+        AClass.staticMethod();
+        AClass.prototype.instanceMethod = () => {
+            console.log('实例方法，通过类的实例调用')
+        }
+        let aclass = new AClass();
+        aclass.instanceMethod();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

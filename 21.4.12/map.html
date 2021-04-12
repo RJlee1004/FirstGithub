@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let map = new Map();
+        // console.log(map);
+        let json = {
+            a: 1,
+            b: 2
+        };
+        map.set('a', 'aaa');
+        console.log(map);
+        console.log('........................');
+        map.set(json, 'aaa');
+        console.log(map);
+        console.log('........................');
+        map.set('aaa', json);
+
+        console.log(map);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .two {
+            width: 500px;
+            height: 10px;
+            background-color: blue;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(() => {
+            $("button").eq(0).click(function () {
+                $(".one").animate({
+                    width: 500,
+                }, 1000).delay(2000).animate({
+                    height: 400
+                }, 1000)
+            })
+            $("button").eq(1).click(function () {
+                //不传参、false、(f,f)表示立即停止当前动画，继续执行后续动画
+                //传true、(t,f)表示立即停止当前和后续动画
+                //(f,t)表示立即完成当前，继续执行后续动画
+                //(t,t)表示立即完成当前并且停止后续所有动画
+                $("div").stop();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>开始动画</button>
+    <button>停止动画</button>
+    <div class="one"></div>
+    <div class="two"></div>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 450px;
+            border: 1px solid black;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        .box>h1 {
+            font-size: 20px;
+            line-height: 35px;
+            padding-left: 10px;
+            color: deeppink;
+        }
+
+        ul>li {
+            list-style: none;
+            padding: 5px 10px;
+        }
+
+        ul>li:nth-child(-n+3) span {
+            background-color: firebrick;
+        }
+
+        ul>li>span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #ccc;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 10px;
+        }
+
+        .content {
+            overflow: hidden;
+            display: none;
+        }
+
+        .content .img {
+            width: 80px;
+            height: 120px;
+            float: left;
+            background-color: yellowgreen;
+            margin-top: 5px;
+        }
+
+        .content>p {
+            width: 180px;
+            height: 120px;
+            float: right;
+        }
+
+        .current .content {
+            display: block;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(() => {
+            $("li").mouseenter(function () {
+                $(this).addClass("current");
+            })
+            $("li").mouseleave(function () {
+                $(this).removeClass("current");
+            })
+            // $("li").hover(function(){
+            //     $(this).addClass("current");
+            // }, () => {
+            //     $(this).removeClass("current");
+            // })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h1>电影排行榜</h1>
+        <ul>
+            <li><span>1</span>电影名称
+                <div class="content">
+                    <div class="img"></div>
+                    <p>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                    </p>
+                </div>
+            </li>
+            <li><span>2</span>电影名称
+                <div class="content">
+                    <div class="img"></div>
+                    <p>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                    </p>
+                </div>
+            </li>
+            <li><span>3</span>电影名称
+                <div class="content">
+                    <div class="img"></div>
+                    <p>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                    </p>
+                </div>
+            </li>
+            <li><span>4</span>电影名称
+                <div class="content">
+                    <div class="img"></div>
+                    <p>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                    </p>
+                </div>
+            </li>
+            <li><span>5</span>电影名称
+                <div class="content">
+                    <div class="img"></div>
+                    <p>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

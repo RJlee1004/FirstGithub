@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无线循环滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 590px;
+            height: 235px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1770px;
+            height: 235px;
+            list-style: none;
+            background-color: #000;
+        }
+
+        ul>li {
+            float: left;
+        }
+
+        ul>li>img {
+            width: 295px;
+            height: 235px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(() => {
+            let offset = 0;
+            let timer;
+            function autoPlay() {
+                timer = setInterval(function () {
+                    offset += -10;
+                    if (offset <= -1180) {
+                        offset = 0;
+                    }
+                    $("ul").css("marginLeft", offset);
+                }, 50)
+            }
+            autoPlay();
+
+            $("li").hover(function () {
+                clearInterval(timer);
+                $(this).siblings().fadeTo(100, 0.5);
+                $(this).fadeTo(100, 1);
+
+            }, function () {
+                autoPlay();
+                $("li").fadeTo(100, 1);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><img src="img/img(1).webp" alt=""></li>
+            <li><img src="img/img(2).webp" alt=""></li>
+            <li><img src="img/img(3).webp" alt=""></li>
+            <li><img src="img/img(4).webp" alt=""></li>
+            <li><img src="img/img(1).webp" alt=""></li>
+            <li><img src="img/img(2).webp" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>

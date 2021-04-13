@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //prop()
+        //特点和attr方法一致，还能操作属性节点
+        //操作有true/false属性的属性节点时，建议用prop
+        //removeProp()
+        //特点和removeAttr方法一致
+
+        $(() => {
+
+            // $("span").eq(0).prop("demo", "it666");
+            // console.log($("span").prop("demo"));
+
+            // $("span").removeProp("demo");
+            // console.log($("input").prop("checked"));
+            let btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                let input = document.getElementsByTagName("input")[0];
+                let text = input.value;
+                $("img").attr("src", text);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text">
+    <button id="btn">切换图片</button>
+    <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+</body>
+
+</html>

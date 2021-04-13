@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //属性:对象身上保存的变量
+        //如何操作属性：
+        // 对象.属性名称 = 值;
+        // 对象.属性名称;
+        // 对象["属性名称"] = 值;
+        // 对象["属性名称"];
+        //什么是属性节点
+        // 在编写html代码时，在html标签中添加的属性就是属性节点
+        //如何操作属性节点
+        //DOM元素.setAttribute("属性名称","值");
+        //DOM元素.getAttrbute("属性名称")
+        //属性和属性节点有什么区别
+        window.onload = function () {
+            var span = document.getElementsByTagName("span")[0];
+            span.setAttribute("name", "lrj");
+            console.log(span.getAttribute("name"));
+        }
+    </script>
+</head>
+
+<body>
+    <span name="it666"></span>
+</body>
+
+</html>

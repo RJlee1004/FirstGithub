@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //jQ中有两种事件绑定方式
+        //eventName(fn)
+        //部分事件JQ未实现
+        //on(eventName,fn)
+        //所有js事件都可以
+        //可以给一个节点添加多个相同事件不会覆盖
+        //还可以同时给一个节点添加多个不同事件
+        $(() => {
+            $("button").click(() => {
+                alert(1);
+            })
+            // $("button").on("click", () => {
+            //     alert(2);
+            // })
+            $("button").click(() => {
+                alert(12);
+            })
+            $("button").mouseleave(() => {
+                alert(123);
+            })
+            $("button").mouseenter(function () {
+                alert(1234);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>我是一个按钮</button>
+</body>
+
+</html>

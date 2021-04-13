@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(() => {
+            // $(".son").click((event) => {
+            //     alert("son");
+            //     //阻止事件冒泡
+            //     // return false;
+            //     // event.stopPropagation();
+            // })
+            // $(".father").click(() => {
+            //     alert("father");
+            // })
+            // $("a").click((event) => {
+            //     alert("弹出注册框");
+            //     //阻止链接跳转
+            //     return false;
+            //     event.preventDefault();
+            // })
+            $("input").eq(1).click((e) => {
+                alert("弹出提交框");
+                //阻止提交跳转
+                return false;
+                // e.preventDefault();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="https://www.baidu.com/">我是百度</a>
+    <form
+        action="https://uland.taobao.com/sem/tbsearch?refpid=mm_26632258_3504122_32538762&keyword=%E5%A5%B3%E8%A3%85&clk1=157a90521e054b693ab52c3cc3647338&upsId=157a90521e054b693ab52c3cc3647338">
+        <input type="text">
+        <input type="submit">
+    </form>
+</body>
+
+</html>

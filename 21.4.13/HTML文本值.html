@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(() => {
+            //html([val|fn])
+            //和原生JS中innerHTML一样
+            //text()
+            //和原生JS中
+            let btns = document.getElementsByTagName("button");
+            btns[0].onclick = function () {
+                $("div").html("<p>我是段落<span>我是span</span></p>");
+            }
+            btns[1].onclick = function () {
+                console.log($("div").html());
+            }
+            btns[2].onclick = function () {
+                $("div").text("<p>我是段落<span>我是span</span></p>");
+            }
+            btns[3].onclick = function () {
+                console.log($("div").text());
+            }
+            btns[4].onclick = function () {
+                $("input").val("请输入内容");
+            }
+            btns[5].onclick = function () {
+                console.log($("input").val());
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <button>设置HTML</button>
+    <button>获取HTML</button>
+    <button>设置text</button>
+    <button>获取text</button>
+    <button>设置value</button>
+    <button>获取value</button>
+    <div></div>
+    <input type="text">
+</body>
+
+</html>

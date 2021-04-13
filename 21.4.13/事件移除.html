@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(() => {
+            function test1() {
+                alert(1);
+            }
+            function test2() {
+                alert(12)
+            }
+            $("button").click(test1);
+            $("button").click(test2);
+            $("button").mouseleave(() => {
+                alert(123);
+            })
+            $("button").mouseenter(function () {
+                alert(1234);
+            });
+            //off():不传参会移除所有事件
+            //传递一个参数，会移除所有指定类型的事件
+            // 两个参数，移除所有指定类型的指定事件
+            // $("button").off();
+            $("button").off("click", test1);
+
+        });
+    </script>
+</head>
+
+<body>
+    <button>我是一个按钮</button>
+
+</body>
+
+</html>

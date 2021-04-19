@@ -1,0 +1,18 @@
+<?xml verson="1.0" encoding="UTF-8" ?>
+<products>
+    <nz>
+        <title>1</title>
+        <des>11</des>
+        <img>111</img>
+    </nz>
+    <bb>
+        <title>2</title>
+        <des>22</des>
+        <img>222</img>
+    </bb>
+    <tx>
+        <title>3</title>
+        <des>33</des>
+        <img>333</img>
+    </tx>
+</products>

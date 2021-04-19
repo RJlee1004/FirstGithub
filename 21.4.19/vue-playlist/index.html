@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <!-- 根容器 -->
+    <div id="vue-app">
+        <!-- <h1>名字：{{name}}</h1>
+        <p>年龄：{{age}}</p>
+        <p>{{greet("lrj")}}</p>
+        <a v-bind:href="website">web开发</a>
+        <input type="text" v-bind:value="age">
+        <p v-html="websiteTag"></p> -->
+        <!-- <h1>event</h1>
+        <button v-on:click="add(10)">涨10岁</button>
+        <button v-on:click="sub">减一岁</button>
+        <button v-on:dblclick="add">涨一岁</button>
+        <button v-on:dblclick="sub">减一岁</button>
+        <p>My age is {{age}}</p>
+
+        <div id="canvas" v-on:mousemove="updateXY">
+            {{x}},{{y}} - <span v-on:mousemove.stop="">Stop</span>
+        </div> -->
+        <!-- <h1>键盘</h1>
+        <label for="">姓名：</label>
+        <input type="text" v-on:keyup.enter="logName">
+        <label for="">年龄：</label>
+        <input type="text" v-on:keyup.alt.enter="logAge"> -->
+        <h1>双向数据绑定input/select/textarea</h1>
+        <label>姓名：</label>
+        <input ref="name" type="text" v-on:keyup="logName">
+        <!-- <input type="text" v-model="name"> -->
+        <span>{{name}}</span>
+        <label>年龄：</label>
+        <input ref="age" type="text" v-on:keyup="logAge">
+        <span>{{age}}</span>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="title">商品标题名称</p>
+    <img src="" alt="">
+    <p id="des">商品描述</p>
+    <button name="nz">女装</button>
+    <button name="bb">包包</button>
+    <button name="tx">拖鞋</button>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("button").eq(0).click(function () {
+            // $(this).attr("name")
+            $.ajax({
+                type: "get",
+                url: "php/ajax-test.php",
+                data: { "name": this.getAttribute("name") },
+                success: function (msg) {
+                    // alert(msg.responseText);
+                    let res = msg;
+                    // let info = res.querySelector(data["name"]);
+                    console.log(res);
+                },
+                error: function (xhr) {
+                    alert(xhr.status);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

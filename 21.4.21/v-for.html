@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <h3 v-show="true">{{msg}}</h3>
+    <h3 v-if="isMsg">{{msg}}</h3>
+    <h2 v-else>ismsg为false时显示</h2>
+
+    <p v-if="score>=90">优秀</p>
+    <p v-else-if="score>=80">良好</p>
+    <p v-else-if="score>=60">及格</p>
+    <p v-else>不及格</p> -->
+    <ul>
+      <li v-for="item in names">{{item}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
+
+    <ul>
+      <li v-for="item in objs">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        names: ["rng", "ig", "edg", "fpx", "skt"],
+        objs: {
+          name: 'lrj',
+          age: 19,
+          sex: '男'
+        }
+      },
+      methods: {
+        btnClick() {
+          // this.names.push('aaa');
+          // this.names.push('aaa', 'bbbb', 'ccc');
+          // this.names.pop();
+          // this.names.shift();
+          // this.names.unshift('ccc');
+          // this.names.splice(2,1,'lrj');
+          // this.names.sort();
+          // this.names.reverse();
+          // this.names = this.names.slice(0,2);
+          Vue.set(this.names, 0, 'bbbbb')
+
+          //下面不是响应式的，索引值修改
+          // this.names[0] = 'bbb';
+        }
+      },
+      computed: {
+        result() {
+          let showMsg = '';
+          if (this.score >= 90) {
+            showMsg = '优秀'
+          }
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>

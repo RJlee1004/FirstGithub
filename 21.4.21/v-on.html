@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{counter}}</h2>
+    <!-- <button @click="counter++">+</button>
+    <button @click="counter--">-</button> -->
+    <button @click="btn1Click()">按钮1</button>
+    <button @click="btn1Click">按钮1</button>
+
+    <!--  -->
+    <button @click="btn2Click(123)">按钮2</button>
+    <button @click="btn2Click()">按钮2</button>
+    <button @click="btn2Click">按钮2</button>
+    <!--  -->
+    <button @click="btn3Click(123,$event)">按钮3</button>
+
+    <div v-for="(item,index) in "> 
+      <button>按钮1</button>
+      <button>按钮2</button>
+      <button>按钮3</button>
+      <button>按钮4</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        firstName: "lrj",
+        lastName: "zt",
+        counter: 0
+      },
+      methods: {
+        btn1Click() {
+          console.log('btn1Click');
+        },
+        btn2Click(event) {
+          console.log('btn2Click ' + event);
+        },
+        btn3Click(str, event) {
+          console.log(str + ' ++++' + event);
+        }
+      },
+      computed: {
+        // fullName: function () {
+        //   return this.firstName + '' + this.lastName;
+        // }
+        fullName: {
+          set: function (newValue) {
+            console.log('-----')
+          },
+          get: function () {
+            return 'abc'
+          }
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>

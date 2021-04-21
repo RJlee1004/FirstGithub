@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div @click="divClick">
+      <button @click.stop="btnClick">儿子btn</button>
+    </div>
+
+    <form action="">
+      <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+    <!-- 监听键盘点击 -->
+    <input type="text" @keyup.enter="keyUP">
+
+    <button @click.once="btn2Click">按钮</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        firstName: "lrj",
+        lastName: "zt",
+        counter: 0
+      },
+      methods: {
+        btn2Click() {
+          console.log('btn2Click');
+        },
+        keyUP() {
+          console.log('keyUP');
+        },
+        btnClick() {
+          console.log('btnClick');
+        },
+        divClick() {
+          console.log('divClick');
+        },
+        submitClick() {
+          console.log('submitClick');
+        }
+      },
+      computed: {
+        // fullName: function () {
+        //   return this.firstName + '' + this.lastName;
+        // }
+        fullName: {
+          set: function (newValue) {
+            console.log('-----')
+          },
+          get: function () {
+            return 'abc'
+          }
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>

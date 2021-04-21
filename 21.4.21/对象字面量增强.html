@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // const obj = {
+    //   name: 'lrj',
+    //   age: 19,
+    //   run: function () {
+    //     console.log('run')
+    //   },
+    //   eat: function () {
+    //     console.log('eat')
+    //   }
+    // }
+
+    const name = "lrj";
+    const age = 19;
+    const sex = "男";
+    //对象增强
+    const obj = {
+      name,
+      age,
+      sex,
+      run() {
+        console.log('run');
+        return 1;
+      }
+    }
+    //函数增强
+
+    console.log(obj)
+    console.log(obj.run())
+  </script>
+</body>
+
+</html>

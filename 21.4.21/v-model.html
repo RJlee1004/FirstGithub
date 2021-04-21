@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- <input type="text" :value="msg" @input="valChange"> -->
+    <!-- <input type="text" v-model="msg"> -->
+
+    <!-- name="sex" -->
+    <!-- <label for="man">
+      <input type="radio" id="man" value="男" v-model="sex">男
+    </label>
+    <label for="feman">
+      <input type="radio" id="feman" value="女" v-model="sex">女
+    </label> -->
+
+    <!-- <label for="agreeMent">
+      <input type="checkbox" name="" id="agreeMent" v-model="isAgree">同意协议
+    </label>
+    {{isAgree}}
+    <button :disabled="!isAgree">下一步</button> -->
+
+    <!-- <input type="checkbox" id="" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" id="" value="足球" v-model="hobbies">足球
+    <input type="checkbox" id="" value="羽毛球" v-model="hobbies">羽毛球
+    <input type="checkbox" id="" value="乒乓球" v-model="hobbies">乒乓球
+    <h2>您的爱好是{{hobbies}}</h2> -->
+
+    <select v-model="fruit">
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="橘子">橘子</option>
+      <option value="葡萄">葡萄</option>
+      <option value="哈密瓜">哈密瓜</option>
+    </select>
+    <h2>{{fruit}}</h2>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        fruit: "",
+        hobbies: [],
+        isAgree: "",
+        sex: "男",
+        msg: "lrj"
+      },
+      methods: {
+        valChange(event) {
+          // this.msg = event.target.value;
+        }
+      },
+      computed: {
+
+      }
+
+    });
+  </script>
+</body>
+
+</html>

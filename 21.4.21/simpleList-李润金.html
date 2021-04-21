@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleList</title>
+    <style>
+        #app {
+            width: 400px;
+
+        }
+
+        #app ul {
+            margin-top: 100px;
+        }
+
+        #app ul li {
+            list-style: none;
+            width: 100%;
+            height: 100px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            margin-top: 5px;
+            position: relative;
+        }
+
+        li .tab-name {
+            display: inline-block;
+            position: absolute;
+            left: 10px;
+            top: 5px;
+        }
+
+        li .tab-btn {
+            position: absolute;
+            right: 5px;
+            top: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{showP}}</p>
+        <ul>
+            <li v-for="(item,index) in productList" :key="index" v-on:dblclick="addName(item.pdName)">
+                <span v-bind:style="{color:item.color }" class="tab-name">{{item.pdName}}</span>
+                <button v-on:click.stop="selectPro(item.pdName)" class="tab-btn">选择按钮</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                showP: "",
+                productList: [
+                    {
+                        pdName: '霸气杨梅',
+                        pdId: 1,
+                        color: '#ff0066'
+                    },
+                    {
+                        pdName: '燃爆橙子',
+                        pdId: 5,
+                        color: ''
+                    },
+                    {
+                        pdName: '杨枝甘露宝藏茶',
+                        pdId: 2,
+                        color: '#ffff00'
+                    },
+                    {
+                        pdName: '黑糖珠珠',
+                        pdId: 6,
+                        color: ''
+                    },
+                    {
+                        pdName: '樱花宝藏茶',
+                        pdId: 3,
+                        color: '#ff99cc'
+                    },
+                    {
+                        pdName: '芝士葡萄',
+                        pdId: 4,
+                        color: '#cc00cc'
+                    }
+                ]
+            },
+            methods: {
+                addName: function (name) {
+                    console.log(name);
+                    this.showP = name;
+                },
+                selectPro: function (name) {
+                    console.log(name);
+                    alert(`选择了${name}`);
+                },
+            },
+            compused: {
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

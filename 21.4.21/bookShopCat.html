@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    table {
+      margin: 100px auto;
+      border-collapse: collapse;
+      width: 500px;
+    }
+
+    th,
+    td {
+      text-align: center;
+      height: 40px;
+    }
+
+    span {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div v-if="books.length != 0">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            </th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            </th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item,index) in books">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.data}}</td>
+            <td>{{item.price | showPrice}}</td>
+            <!-- <td>{{getFinalPrice(item.price)}}</td> -->
+            <td>
+              <span @click='isClick&&sub(index)' :disabled="item.count <= 1">-</span>
+              {{item.num}}
+              <span @click='add(index)'>+</span>
+            </td>
+            <!-- <td v-for="val in item">{{val}}</td> -->
+            <td>
+              <button @click="removeHandle(index)">删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>总价:{{totalPrice | showPrice}}</h4>
+    </div>
+    <h3 v-else>购物车为空</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        isClick: true,
+        books: [
+          {
+            id: "1",
+            name: "11",
+            data: "111",
+            price: 99.00,
+            num: 1
+          },
+          {
+            id: "2",
+            name: "22",
+            data: "222",
+            price: 99.00,
+            num: 1
+          },
+          {
+            id: "3",
+            name: "33",
+            data: "333",
+            price: 99.00,
+            num: 1
+          },
+          {
+            id: "4",
+            name: "44",
+            data: "444",
+            price: 99.00,
+            num: 1
+          },
+        ]
+      },
+      methods: {
+        removeHandle(index) {
+          this.books.splice(index, 1);
+        },
+        add(index) {
+          this.isClick = true;
+          return this.books[index].num++;
+        },
+        sub(index) {
+          if (this.books[index].num <= 1) {
+            this.isClick = false;
+            return;
+          }
+          return this.books[index].num--;
+        }
+        // getFinalPrice(price) {
+        //   return '￥' + price.toFixed(2);
+        // }
+      },
+      filters: {
+        showPrice(price) {
+          return '￥' + price.toFixed(2);
+        }
+      },
+      computed: {
+        totalPrice() {
+          let totalPrice = 0;
+          // for (let i = 0; i < this.books.length; i++) {
+          // totalPrice += this.books[i].price * this.books[i].num;
+          // }
+          // for (let i in this.books) {
+          //   totalPrice += this.books[i].price * this.books[i].num;
+          // }
+          for (let book of this.books) {
+            totalPrice += book.price * book.num;
+          }
+          return totalPrice;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

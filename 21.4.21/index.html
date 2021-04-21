@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h4>请您输入选项的内容(按下enter确认):</h4>
+    <input type="text" v-model="msg" @click.enter="info(msg)">
+    <h4>您输入的内容是：{{msg}}</h4>
+
+    <select v-model="fruit">
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="橘子">橘子</option>
+      <option value="葡萄">葡萄</option>
+      <option value="哈密瓜">哈密瓜</option>
+    </select>
+    <h2>{{fruit}}</h2>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        fruit: "",
+        msg: "lrj"
+      },
+      methods: {
+        info(msg) {
+        }
+      },
+      computed: {
+
+      }
+
+    });
+  </script>
+</body>
+
+</html>

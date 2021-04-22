@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue-app">
+    <cpn v-show="isShow"></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>我是子组件</h2>
+      <h2>我是内容</h2>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#vue-app",
+      data: {
+        msg: "lrj",
+        isShow: true
+      },
+      components: {
+        cpn: {
+          template: "#cpn",
+          data() {
+            return {
+              isShow: false
+            }
+          },
+          props: {
+
+          }
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>

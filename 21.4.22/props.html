@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue-app">
+    <!-- <cpn2></cpn2> -->
+    <!-- <cpn2 v-bind:cmsg="msg" :cmovies="movies"></cpn2> -->
+    <cpn2 :cinfo="info"></cpn2>
+  </div>
+
+  <template id="cpn1">
+    <div>
+      <h2>我是标题</h2>
+      <p>我是段落</p>
+    </div>
+  </template>
+  <template id="cpn2">
+    <div>
+      <h2>我是等待root父传值给我</h2>
+      <!-- <p>{{cmsg}}</p>
+      <p v-for="item in cmovies" :key="item">{{item}}</p> -->
+      <p>{{cinfo}}</p>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    const cpnC1 = Vue.extend({
+      template: "#cpn1"
+    });
+    // 构造加模板，还需去父组件注册
+    // const cpnC2 = Vue.extend({
+    //   template: "#cpn2",
+    //   props: ['cmovies', 'cmsg']
+    // });
+    const cpnC2 = {
+      template: "#cpn2",
+      // props: ['cmovies', 'cmsg']
+      props: {
+        // 1.提供类型限制
+        // cmovies: Array,
+        // cmessage: String
+        // 提供默认值，可以以对象展现
+        cinfo: {
+          type: Object,
+          default() {
+            return {}
+          },
+
+        }
+      }
+    };
+    const app = new Vue({
+      el: "#vue-app",
+      data: {
+        info: {
+          name: "lrj",
+          age: 19,
+          sex: "男"
+        },
+        movies: ["aaaa", "bbbb", "cccc", "dddd"]
+      },
+      components: {
+        cpn2: cpnC2
+      }
+    });
+  </script>
+</body>
+
+</html>

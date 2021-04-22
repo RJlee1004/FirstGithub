@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue-app">
+    <cpn2 @itemclick="cpnClick"></cpn2>
+  </div>
+
+  <template id="cpn2">
+    <div>
+      <button v-for="item in categories" @click="btnClick(item)">{{item.name}}</button>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const cpnC2 = {
+      template: "#cpn2",
+      data() {
+        return {
+          categories: [
+            { id: "aaa", name: "1111" },
+            { id: "bbb", name: "2222" },
+            { id: "ccc", name: "3333" },
+            { id: "ddd", name: "4444" },
+          ]
+        }
+      },
+      methods: {
+        // btnClick(item) {
+        //   console.log(item);
+        // }
+        btnClick(item) {
+          //发射
+          this.$emit('itemclick', item);
+        }
+      }
+    };
+    const app = new Vue({
+      el: "#vue-app",
+      data: {
+        info: {
+          name: "lrj",
+          age: 19,
+          sex: "男"
+        },
+        movies: ["aaaa", "bbbb", "cccc", "dddd"]
+      },
+      methods: {
+        cpnClick(item) {
+          console.log('cpnClick' + item.id)
+        }
+      },
+      components: {
+        cpn2: cpnC2
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #vue-app {
+      width: 400px;
+    }
+
+    #vue-app ul {
+      margin-top: 100px;
+    }
+
+    #vue-app ul li {
+      list-style: none;
+      width: 100%;
+      height: 100px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      margin-top: 5px;
+      position: relative;
+    }
+
+    li .tab-name {
+      display: inline-block;
+      position: absolute;
+      left: 10px;
+      top: 5px;
+    }
+
+    li .tab-btn {
+      position: absolute;
+      right: 5px;
+      top: 70px;
+    }
+
+    li .orderStatus {
+      float: right;
+      margin-right: 5px;
+    }
+
+    li .payBtn {
+      float: right;
+      margin-right: 5px;
+    }
+
+    li .yellow {
+      color: #fe9e2b;
+    }
+
+    li .gray {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="vue-app">
+    <cpn :ordersonlist="orderList"></cpn>
+  </div>
+
+
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for="(item,index) in ordersonlist">
+          <div>订单信息：
+            <span>订单 {{item.orderId}}</span>
+            <span v-if="item.orderstatus != ''"
+              v-bind:class="{orderStatus:true, gray:item.orderstatus == 'REFUND',yellow:item.orderstatus == 'PAY' || 'WAIT'}">{{item.statusName}}</span>
+          </div>
+          <div v-show="item.payTime != ''">支付时间：<span>{{item.payTime}}</span></div>
+          <div v-show="item.orderstatus == 'PAY'">预计出票时间：<span>定时间</span></div>
+          <button v-if="item.orderstatus == 'WAIT'" class="payBtn">去支付</button>
+          <button v-else-if="item.orderstatus == 'PAY'" class="payBtn">查看详情</button>
+        </li>
+      </ul>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#vue-app",
+      data: {
+        orderList: [
+          {
+            orderId: 1,
+            orderstatus: '',
+            statusName: '创建订单',
+            payTime: '',
+            createTime: '2021-04-21 08:30:00'
+          }, {
+            orderId: 2,
+            orderstatus: 'PAY',
+            statusName: '已支付',
+            payTime: '2021-04-21 10:00:00',
+            createTime: '2021-04-21 09:30:00'
+          }, {
+            orderId: 3,
+            orderstatus: 'WAIT',
+            statusName: '支付中',
+            payTime: '',
+            createTime: '2021-04-21 10:10:10'
+          }, {
+            orderId: 4,
+            orderstatus: 'REFUND',
+            statusName: '已退款',
+            payTime: '2021-04-21 11:00:00',
+            createTime: '2021-04-21 10:20:00'
+          }, {
+            orderId: 5,
+            orderstatus: 'PAY',
+            statusName: '已支付',
+            payTime: '2021-04-21 15:15:15',
+            createTime: '2021-04-21 15:00:00'
+          },
+        ]
+      },
+      components: {
+        cpn: {
+          template: "#cpn",
+          props: {
+            ordersonlist: {
+              type: Array,
+              default() {
+                return [];
+              }
+            },
+            //citem: item.payTime
+          },
+          data() {
+            return {
+              orderStatus: this.ordersonlist
+            }
+          },
+          computed: {
+            // timer() {
+            //   let res = '';
+            //   let dateStr1 = this.ordersonlist[1].payTime.split(' ')[0];
+            //   console.log(dateStr1)
+            //   let tempDate = new Date(dateStr1.replace(/-/g, "/")); //把日期字符串转换成日期格式
+
+            //   let resultDate = new Date((tempDate / 1000 + (86400 * 2)) * 1000); //增加n天后的日期
+
+            //   let resultDateStr = resultDate.getFullYear() + "-" + (resultDate.getMonth() + 1) + "-" + (resultDate.getDate()); //将日期转化为字符串格式
+
+            //   return resultDateStr + ' ' + this.citem.payTime.split(' ')[1];
+            // }
+          }
+        }
+      }
+
+    });
+
+  </script>
+</body>
+
+</html>

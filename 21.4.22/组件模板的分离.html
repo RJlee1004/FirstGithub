@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue-app">
+    <cpn1></cpn1>
+    <cpn2></cpn2>
+    <cpn2></cpn2>
+    <cpn2></cpn2>
+  </div>
+  <!-- 模板1 -->
+  <script type="text/x-template" id="cpn1">
+    <div>
+      <h2>{{title}}</h2>
+      <p>我是段落</p>
+    </div>
+  </script>
+  <!-- 模板2 -->
+  <template id="cpn2">
+    <div>
+      <h2>当前计数：{{counter}}</h2>
+      <button @click="add">+</button>
+      <button @click="sub"> - </button>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component("cpn1", {
+      template: "#cpn1",
+      data() {
+        return {
+          title: "我是标题1"
+        }
+      }
+    });
+    Vue.component("cpn2", {
+      template: "#cpn2",
+      data() {
+        return {
+          counter: 0,
+        }
+      },
+      methods: {
+        add() {
+          this.counter++;
+        },
+        sub() {
+          this.counter--;
+        }
+      }
+    })
+    // Vue实例
+    new Vue({
+      el: "#vue-app",
+      data: {
+        msg: "lrj"
+      },
+
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue-app">
+    <cpn :number1="num1" :number2="num2" @num1change="num1change" @num2change="num2change"></cpn>
+    <!-- <cpn :number1="num2"></cpn> -->
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>props:{{number1}}</h2>
+      <h2>data:{{dnumber1}}</h2>
+      <!-- <input type="text" v-model="dnumber1"> -->
+      <input type="text" :value="dnumber1" @input="num1Input">
+      <h2>props:{{number2}}</h2>
+      <h2>data:{{dnumber2}}</h2>
+      <!-- <input type="text" v-model="dnumber2"> -->
+      <input type="text" :value="dnumber2" @input="num2Input">
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#vue-app",
+      data: {
+        num1: 1,
+        num2: 2,
+      },
+      methods: {
+        num1change(val) {
+          this.num1 = parseInt(val);
+        },
+        num2change(val) {
+          this.num2 = parseInt(val);
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props: {//初衷是父组件给其传值，尽量不要在组件内改变
+            number1: Number,
+            number2: Number
+          },
+          //data中的数据是根据props中初始化的，而data中数据改变时并不会影响props中的值
+          //为了让其改变，使用：input事件向父组件发出事件，让父组件改变props中的值
+          data() {
+            return {
+              dnumber1: this.number1,
+              dnumber2: this.number2
+            }
+          },
+          methods: {
+            num1Input(event) {
+              //将input中的value值赋值到dnumber中
+              this.dnumber1 = event.target.value;
+              //为了让父组件可以修改值，发出一个事件
+              this.$emit('num1change', this.dnumber1)
+            },
+            num2Input(event) {
+              this.dnumber2 = event.target.value;
+              this.$emit('num2change', this.dnumber2)
+            },
+          }
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>

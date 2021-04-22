@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue-app">
+    <cpn><button>按钮</button></cpn>
+    <cpn><span>hhh</span></cpn>
+    <cpn><span>www</span></cpn>
+    <cpn><button>dadad</button></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn>
+      <i>我用多个标签一起替换默认值</i>
+      <a>我用多个标签一起替换默认值</a>
+      <b>我用多个标签一起替换默认值</b>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h3>我是组件</h3>
+      <p>我是组件哈哈</p>
+      <!-- 插槽标签 -->
+      <slot><button>我是插槽默认按钮</button></slot>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    const app = new Vue({
+      el: "#vue-app",
+      data: {
+        msg: "lrj"
+      },
+      components: {
+        cpn: {
+          template: "#cpn",
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+@baseUrl=http://172.16.1.131:8096/piao
+
+@cityId=71
+@regionId=741
+### 城市列表
+GET {{baseUrl}}/city/queryAllCityList
+
+### 首页获取热门城市接口
+GET {{baseUrl}}/city/queryHotCityList
+
+### 根据城市名称，查询城市信息
+GET {{baseUrl}}/city/queryCityByName?cityName=北
+
+### 获取具体城市下的地区接口
+GET {{baseUrl}}/city/queryCityRegionByCityId?cityId={{cityId}}
+
+### 影院列表
+GET {{baseUrl}}/cinema/queryCinemaList?cityId={{cityId}}&regionId={{regionId}}&movieId=
+
+
